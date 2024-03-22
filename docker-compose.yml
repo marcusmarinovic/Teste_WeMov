@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  postgres_financeiro:
+    image: postgres
+    container_name: postgres_financeiro
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: financeiro
+      POSTGRES_PASSWORD: financeiro01
+      POSTGRES_DB: financeiro
+
+  postgres_negocio:
+    image: postgres
+    container_name: postgres_negocio
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: negocio
+      POSTGRES_PASSWORD: negocio01
+      POSTGRES_DB: negocio

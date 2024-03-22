@@ -1,0 +1,26 @@
+-- Database: financeiro
+
+-- DROP DATABASE IF EXISTS financeiro;
+
+CREATE DATABASE financeiro
+    WITH
+    OWNER = financeiro
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+GRANT ALL ON DATABASE financeiro TO PUBLIC;
+
+GRANT ALL ON DATABASE financeiro TO financeiro WITH GRANT OPTION;
+
+GRANT ALL ON DATABASE financeiro TO negocio WITH GRANT OPTION;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE financeiro
+GRANT ALL ON TABLES TO negocio;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE financeiro
+GRANT EXECUTE ON FUNCTIONS TO negocio;

@@ -1,0 +1,26 @@
+-- Database: negocio
+
+-- DROP DATABASE IF EXISTS negocio;
+
+CREATE DATABASE negocio
+    WITH
+    OWNER = negocio
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+GRANT ALL ON DATABASE negocio TO PUBLIC;
+
+GRANT ALL ON DATABASE negocio TO financeiro WITH GRANT OPTION;
+
+GRANT ALL ON DATABASE negocio TO negocio WITH GRANT OPTION;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE negocio
+GRANT ALL ON TABLES TO financeiro;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE negocio
+GRANT EXECUTE ON FUNCTIONS TO financeiro;
